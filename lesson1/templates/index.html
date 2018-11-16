@@ -1,0 +1,53 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Магазин холодного оружия</title>
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="headerUnit" id="Logo">
+                    <span id="headerLogo">Магазин холодного оружия</span>
+                    <img src="{% static 'images/logo.jpeg' %}" alt="logo" width="100">
+
+                    <strong>"Рубило"</strong>
+                </div>
+
+                <div class="headerUnit">
+                    <ul class="main-menu">
+                        <li><a href={% url 'contacts' %}>Контакты</a></li>
+                        <li><a href={% url 'catalog' %}>Каталог</a></li>
+                        <li><a href={% url 'index' %}>Главная</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="body">
+                <hr>
+                <h1>Главная</h1>
+
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt mauris turpis.
+                    Mauris sed velit erat. Vivamus condimentum non nunc id tristique.
+                    Suspendisse placerat metus id consequat condimentum. In eu risus ex. Sed at nulla varius, congue mauris id,
+                    congue tellus. Cras libero leo, feugiat vitae diam quis, mattis ultricies nisi.
+                    Aliquam interdum vestibulum velit, a tempus turpis luctus id. Vivamus convallis aliquet sagittis.
+                    Duis vitae nulla venenatis, laoreet risus et, porttitor justo. Nulla libero ex, sollicitudin at dictum ac,
+                    sollicitudin vitae ante. Sed non diam quis tortor imperdiet semper eu sit amet purus. Nunc a faucibus odio.
+                    Duis at laoreet eros. Nunc interdum, mi et lacinia dapibus, sem elit dapibus nulla,
+                    a consectetur mi lorem quis nulla. Fusce eu accumsan mauris.
+                </p>
+            </div>
+
+            <hr>
+            <div class="footer">
+                © Все права защищены
+            </div>
+        </div>
+    </body>
+</html>

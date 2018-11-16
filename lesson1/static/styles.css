@@ -1,0 +1,196 @@
+@font-face {
+    font-family: "Fleischmann GotischC Regular";
+    src: url("fonts/Fleischmann-GotischC_Regular.ttf");
+}
+
+body {
+    width: 980px;
+    margin: auto;
+    background-color: #f8f8f8;
+}
+
+.header {
+    width: 980px;
+    height: 100px;
+    overflow: hidden;
+    list-style: none;
+    padding-top: 20px;
+}
+
+.headerUnit{
+    overflow: hidden;
+}
+
+.headerUnit#Logo {
+    margin-left: 15px;
+    float: left;
+    width: 280px;
+}
+
+#headerLogo {
+    position: relative;
+    left: 7px;
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.headerUnit img {
+    margin-top: 10px;
+}
+
+.headerUnit strong {
+    position:relative;
+    bottom: 14px;
+    font-family: "Fleischmann GotischC Regular", sans-serif;
+    font-size: 46px;
+}
+
+.headerUnit ul,li a {
+    float: right;
+    padding-right: 10px;
+    font-variant: small-caps;
+    font-size: 26px;
+    margin-top: 32px;
+    margin-bottom: 0px;
+    color: #a15151;
+}
+
+.headerUnit ul li {
+    list-style: none;
+    display: inline;
+}
+
+.catCont{
+    overflow: hidden;
+    margin: auto;
+}
+
+.catUnit {
+    border: darkgrey solid 1px;
+    margin: 10px;
+    padding: 5px 10px 5px 5px;
+    width: 21%;
+    float: left;
+}
+
+.catUnit img {
+    width: 210px;
+}
+
+.catUnit:nth-child(-n+4) {
+    margin-top: 0;
+}
+
+.catUnit:nth-child(4n) {
+    margin-right: 0;
+}
+
+.body {
+    min-height: 280px;
+}
+
+.body p[class^="product"]:first-letter{
+    color: red;
+    font-family: Verdana, Arial, sans-serif;
+}
+
+.productCont {
+    overflow: hidden;
+}
+
+.productCont img {
+    float: left;
+}
+
+.productCont:after {
+    content: '';
+    clear: both;
+}
+
+.buybutton {
+    float: right;
+    background: lightgrey;
+    display: inline-block;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: bold;
+    color: #a15151;
+    font-family: sans-serif;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.buybutton:hover {
+    background: white;
+}
+
+.buybutton:active {
+    color: white;
+    background: #a15151;
+}
+
+.productHeader {
+    color: black;
+    font-size: 18px;
+    margin-top: 0;
+    font-weight: 400;
+    background-color: #eaeaea;
+}
+
+.productImg {
+    border: 4px solid lightgrey;
+    width: 250px;
+    margin-right: 10px;
+}
+
+.productImg:hover {
+    border: 4px transparent;
+    padding: 4px;
+}
+
+.productShortDesc {
+    color: #707070;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 16px;
+}
+
+.productLongDesc {
+    color: #484343;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+}
+
+
+.productCharacteristics tr, td, table {
+    font-family: Calibri, Arial, sans-serif;
+    color: dimgrey;
+    border: 1px solid lightgrey;
+    border-collapse: collapse;
+}
+
+.productCharacteristics td {
+    padding: 0px 4px 0px 4px;
+}
+
+
+.contacts input, textarea{
+    color: #a15151;
+    font-size: 13px;
+    text-transform: capitalize;
+}
+
+.contacts #email:focus {
+    color: #3e0dff;
+    background-color: lightgrey;
+}
+
+
+.footer {
+    background-color: lightgrey;
+    text-align: right;
+    padding: 10px 10px 0 0;
+    height: 40px;
+}
