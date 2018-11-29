@@ -16,7 +16,7 @@ def catalog(request):
     path = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '..', 'static', 'data.json'))
     with open(path) as json_data:
         products = json.load(json_data)
-        json_data.close()
+
 
     content = {'title': title, 'products': products}
     return render(request, 'catalog.html', content)
