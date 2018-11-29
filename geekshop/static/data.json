@@ -1,0 +1,34 @@
+[
+  {
+    "name": "Фальшон",
+    "desc": "Меч - пушка!",
+    "price": "5000",
+    "image_src": "falchion.jpg",
+    "image_href": "catalog/1.html",
+    "alt": "falchion"
+  },
+  {
+      "name": "Каролинг",
+      "desc": "Сабля - огонь!",
+      "price": "6500",
+      "image_src": "karoling.jpg",
+      "image_href": "catalog/2.html",
+      "alt": "karoling"
+  },
+  {
+      "name": "Европа",
+      "desc": "Лучшее - крестоносцам!",
+      "price": "10000",
+      "image_src": "europe.jpg",
+      "image_href": "catalog/3.html",
+      "alt": "europe"
+  },
+  {
+      "name": "Европа",
+      "desc": "Я ещё один меч",
+      "price": "10000",
+      "image_src": "europe.jpg",
+      "image_href": "catalog/3.html",
+      "alt": "europe"
+  }
+]

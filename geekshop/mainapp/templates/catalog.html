@@ -1,93 +1,23 @@
+{% extends 'base.html' %}
 {% load static %}
-{% load staticfiles %}
 
-<!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Магазин холодного оружия</title>
-        <link href={% static 'styles.css' %} rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="headerUnit" id="Logo">
-                    <span id="headerLogo">Магазин холодного оружия</span>
-                    <img src={% static "images/logo.jpeg" %} alt="logo" width="100">
+{% block content %}
+<div class="body">
+    <hr>
+    <h1>{{ title }}</h1>
 
-                    <strong>"Рубило"</strong>
-                </div>
-
-                <div class="headerUnit">
-                    <ul class="main-menu">
-                        <li><a href={% url 'contacts' %}>Контакты</a></li>
-                        <li><a href={% url 'catalog' %}>Каталог</a></li>
-                        <li><a href={% url 'index' %}>Главная</a></li>
-                    </ul>
-                </div>
+    <div class="catCont">
+        {% for product in products %}
+            <div class="catUnit">
+                <b>{{ product.name }}</b>
+                <img src="{% static 'images/' %}{{ product.image_src }}" alt="{{ product.alt }}">
+                Цена {{ product.price }}р
+                <br>
+                {{ product.desc }}
+                <br>
+                <a href="{{ product.image_href }}">Подробнее</a>
             </div>
-
-            <div class="body">
-                <hr>
-                <h1>Каталог</h1>
-
-                <div class="catCont">
-                    <div class="catUnit">
-                        <b>Фальшон</b>
-                        <img src={% static 'images/falchion.jpg' %} alt="falchion">
-                        Цена 5000р
-                        <br>
-                        Краткое описание
-                        <br>
-                        <a href="catalog/1.html">Подробнее</a>
-                    </div>
-
-                    <div class="catUnit">
-                        <b>Каролинг</b>
-                        <img src={% static 'images/karoling.jpg' %} alt="karoling">
-                        Цена 6500р
-                        <br>
-                        Краткое описание
-                        <br>
-                        <a href="catalog/2.html">Подробнее</a>
-                    </div>
-
-                    <div class="catUnit">
-                        <b>Европа</b>
-                        <img src={% static "images/europe.jpg" %} alt="europe">
-                        Цена 10000р
-                        <br>
-                        Краткое описание
-                        <br>
-                        <a href="catalog/3.html">Подробнее</a>
-                    </div>
-
-                    <div class="catUnit">
-                        <b>Европа</b>
-                        <img src={% static "images/europe.jpg" %} alt="europe">
-                        Цена 50000р
-                        <br>
-                        Краткое описание
-                        <br>
-                        <a href="catalog/3.html">Подробнее</a>
-                    </div>
-
-                    <div class="catUnit">
-                        <b>Европа</b>
-                        <img src={% static "images/europe.jpg" %} alt="europe">
-                        Цена 5000р
-                        <br>
-                        Краткое описание
-                        <br>
-                        <a href="catalog/3.html">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-
-            <hr>
-            <div class="footer">
-                © Все права защищены
-            </div>
-        </div>
-    </body>
-</html>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

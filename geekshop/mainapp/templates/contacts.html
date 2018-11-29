@@ -1,58 +1,25 @@
-{% load static %}
-{% load staticfiles %}
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="ru">
-    <head>
-        <meta charset="UTF-8">
-        <title>Магазин холодного оружия</title>
-        <link href={% static 'styles.css' %} rel="stylesheet">
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <div class="headerUnit" id="Logo">
-                    <span id="headerLogo">Магазин холодного оружия</span>
-                    <img src={% static 'images/logo.jpeg' %} alt="logo" width="100">
+{% block content %}
+<div class="body">
+    <hr>
+    <h1>{{ title }}</h1>
+    <fieldset>
+        <legend>Напишите нам!</legend>
+        <form class="contacts">
+            <input id="name" placeholder="Ваше имя"><br>
+            <input required id="email" placeholder="Электронный адрес"><br>
+            <input id="subject" placeholder="Тема сообщения"><br>
+            <textarea required rows="7" cols="30" placeholder="Текст сообщения"></textarea><br>
+            <button>Отправить!</button>
+        </form>
+    </fieldset>
 
-                    <strong>"Рубило"</strong>
-                </div>
+    <h2>Адрес</h2>
+    <b>Адрес:</b> г. Москва, Красная пл., д.1<br>
+    <b>Email:</b> <a href="mailto:office@roobeelo.ru">office@roobeelo.ru</a><br>
+    <b>Телефон:</b> <a href="tel:+74951234567">+7 495 123-45-67</a><br>
 
-                <div class="headerUnit">
-                    <ul class="main-menu">
-                        <li><a href={% url 'contacts' %}>Контакты</a></li>
-                        <li><a href={% url 'catalog' %}>Каталог</a></li>
-                        <li><a href={% url 'index' %}>Главная</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="body">
-                <hr>
-                <h1>Контакты</h1>
-                <fieldset>
-                    <legend>Напишите нам!</legend>
-                    <form class="contacts">
-                        <input id="name" placeholder="Ваше имя"><br>
-                        <input required id="email" placeholder="Электронный адрес"><br>
-                        <input id="subject" placeholder="Тема сообщения"><br>
-                        <textarea required rows="7" cols="30" placeholder="Текст сообщения"></textarea><br>
-                        <button>Отправить!</button>
-                    </form>
-                </fieldset>
-
-                <h2>Адрес</h2>
-                <b>Адрес:</b> г. Москва, Красная пл., д.1<br>
-                <b>Email:</b> <a href="mailto:office@roobeelo.ru">office@roobeelo.ru</a><br>
-                <b>Телефон:</b> <a href="tel:+74951234567">+7 495 123-45-67</a><br>
-
-                <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad120366bc2e9c492c75b12af59b190e1c0ce6ba375ed36d1defdc876706ce2ea&amp;width=100%&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
-            </div>
-
-            <hr>
-            <div class="footer">
-                © Все права защищены
-            </div>
-        </div>
-    </body>
-</html>
+    <script type="text/javascript" charset="utf-8" async src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3Ad120366bc2e9c492c75b12af59b190e1c0ce6ba375ed36d1defdc876706ce2ea&amp;width=100%&amp;height=374&amp;lang=ru_RU&amp;scroll=true"></script>
+</div>
+{% endblock %}

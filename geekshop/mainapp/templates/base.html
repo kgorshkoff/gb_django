@@ -1,0 +1,35 @@
+{% load static %}
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Магазин холодного оружия</title>
+        <link href="{% static 'styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <div class="headerUnit" id="Logo">
+                    <span id="headerLogo">Магазин холодного оружия</span>
+                    <img src="{% static 'images/logo.jpeg' %}" alt="logo" width="100">
+
+                    <strong>"Рубило"</strong>
+                </div>
+
+                {% include 'include/menu.html' %}
+
+            </div>
+        </div>
+
+        {% block content %}
+
+        {% endblock %}
+
+        <hr>
+        <div class="footer">
+            Все права защищены © {{ date }}
+        </div>
+    </body>
+</html>
