@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% block content %}
+
 <div class="body">
     <hr>
-    <h1>{{ title }}</h1>
+    <h1>Главная</h1>
+    <div class="catCont">
+        {% for category in categories %}
+            <div class="catUnit" style="text-align: center;">
+                <b>{{ category.name }}</b>
+                <a href="{% url 'catalog_id' category.id %}">
+                    <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                    Подробнее</a>
+            </div>
+        {% endfor %}
+    </div>
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt mauris turpis.
         Mauris sed velit erat. Vivamus condimentum non nunc id tristique.

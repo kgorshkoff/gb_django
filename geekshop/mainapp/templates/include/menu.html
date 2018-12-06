@@ -1,7 +1,11 @@
 <div class="headerUnit">
     <ul class="main-menu">
         <li><a href={% url 'contacts' %}>Контакты</a></li>
-        <li><a href={% url 'catalog' %}>Каталог</a></li>
+        <li>
+{#            <div class="dropdown">#}
+                <a href={% url 'catalog' %}>Каталог</a>
+{#            </div>#}
+        </li>
         <li><a href={% url 'index' %}>Главная</a></li>
     </ul>
 </div>

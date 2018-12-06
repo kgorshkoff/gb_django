@@ -10,7 +10,7 @@
         {% for product in products %}
             <div class="catUnit">
                 <b>{{ product.name }}</b>
-                <img src="{% static 'images/' %}{{ product.image_src }}" alt="{{ product.alt }}">
+                <img src="{{ product.image.url }}" alt="{{ product.alt }}">
                 Цена {{ product.price }}р
                 <br>
                 {{ product.desc }}

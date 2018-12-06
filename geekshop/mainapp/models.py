@@ -1,3 +1,27 @@
 from django.db import models
 
-# Create your models here.
+
+class Category(models.Model):
+    def __str__(self):
+        return self.name
+
+    name = models.CharField(max_length=32, unique=True, verbose_name='Название')
+    image = models.ImageField(upload_to='products', verbose_name='Изображение', null=True)
+    position = models.PositiveIntegerField(verbose_name='Порядок')
+
+
+class Product(models.Model):
+    def __str__(self):
+        return self.name
+
+    name = models.CharField(max_length=32, unique=True, verbose_name='Название')
+    desc = models.TextField(verbose_name='Описание')
+    price = models.PositiveIntegerField(verbose_name='Цена')
+    image = models.ImageField(upload_to='products', verbose_name='Изображение', null=True)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+
+
+# one to one = OneToOne
+# one to many = ForeignKey
+# many to many = ManyToMany
+
