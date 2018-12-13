@@ -1,11 +1,13 @@
 <div class="headerUnit">
     <ul class="main-menu">
+        {% if user.is_anonymous == True %}
+            <li><a href={% url 'auth:login' %}>Войти</a></li>
+        {% else %}
+            <li><a href={% url 'auth:logout' %}>Выйти</a></li>
+            <li><a href={% url 'auth:edit' %}>{{ user }}</a></li>
+        {% endif %}
         <li><a href={% url 'contacts' %}>Контакты</a></li>
-        <li>
-{#            <div class="dropdown">#}
-                <a href={% url 'catalog' %}>Каталог</a>
-{#            </div>#}
-        </li>
+        <li><a href={% url 'catalog' %}>Каталог</a></li>
         <li><a href={% url 'index' %}>Главная</a></li>
     </ul>
 </div>

@@ -15,17 +15,18 @@ Including another URLconf
 """
 from mainapp import views
 from django.contrib import admin
-from django.urls import path, re_path
+from django.urls import path, include
 from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('', views.main_view, name='index'),
     path('catalog/', views.catalog, name='catalog'),
     path('catalog/<int:category_id>', views.catalog_id, name='catalog_id'),
     path('contacts/', views.contacts, name='contacts'),
-    # re_path(r'^catalog/([0-9]{2})$', views.catalog, name='catalog'),
+    path('auth/', include('authapp.urls', namespace='auth')),
+
+    path('admin/', admin.site.urls),
 ]
 
 if settings.DEBUG:
