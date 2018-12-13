@@ -1,0 +1,17 @@
+[
+    {
+        "name": "Мечи",
+        "image": "products/falchion.jpg",
+        "position": "0"
+    },
+    {
+        "name": "Топоры",
+        "image": "products/axe.jpeg",
+        "position": "1"
+    },
+    {
+        "name": "Мультитулы",
+        "image": "products/multitool.jpeg",
+        "position": "2"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "category": "Мечи",
+        "name": "Фальшон",
+        "image": "products/falchion.jpg",
+        "desc": "Отличная сабля!",
+        "price": "10000"
+    },
+    {
+        "category": "Мечи",
+        "name": "Каролинг",
+        "image": "products/karoling.jpg",
+        "desc": "Лучшее - крестоносцам!",
+        "price": "12000"
+    },
+    {
+        "category": "Мечи",
+        "name": "Европа",
+        "image": "products/europe.jpg",
+        "desc": "Заруби сарацина!",
+        "price": "15000"
+    }
+]
