@@ -16,6 +16,7 @@
                 {{ product.desc }}
                 <br>
                 <a href="{{ product.image_href }}">Подробнее</a>
+                <br><a href="{% url 'basket:add' product.pk %}">Заказать</a>
             </div>
         {% endfor %}
     </div>

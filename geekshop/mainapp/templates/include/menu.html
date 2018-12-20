@@ -4,7 +4,7 @@
             <li><a href={% url 'auth:login' %}>Войти</a></li>
         {% else %}
             <li><a href={% url 'auth:logout' %}>Выйти</a></li>
-            <li><a href={% url 'auth:edit' %}>{{ user }}</a></li>
+            <li><a href={% url 'auth:edit' %}>{{ user }}({{ basket.count }})</a></li>
         {% endif %}
         <li><a href={% url 'contacts' %}>Контакты</a></li>
         <li><a href={% url 'catalog' %}>Каталог</a></li>
