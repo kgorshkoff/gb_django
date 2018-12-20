@@ -4,7 +4,9 @@ from mainapp.models import Product
 
 
 def basket(request):
-    content = {}
+    order = Basket.objects.filter(user=request.user)
+    content = {'basket': order}
+
     return render(request, 'basketapp/basket.html', content)
 
     

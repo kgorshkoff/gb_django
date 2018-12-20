@@ -50,7 +50,7 @@ body {
     padding-right: 10px;
     font-variant: small-caps;
     font-size: 26px;
-    margin-top: 32px;
+    margin-top: 65px;
     margin-bottom: 0px;
     color: #a15151;
 }
@@ -58,6 +58,10 @@ body {
 .headerUnit ul li {
     list-style: none;
     display: inline;
+}
+
+.headerUnit#menu a {
+    color: #a15151
 }
 
 .catCont{
@@ -196,8 +200,8 @@ body {
 }
 
 .dropdown {
-    /*position: relative;*/
-    /*display: inline-block;*/
+    position: relative ;
+    display: inline-block;
 }
 
 .dropdown-content {
@@ -212,4 +216,11 @@ body {
 
 .dropdown:hover .dropdown-content {
     display: block;
+}
+
+.orderTable {
+    font-family: Verdana, Arial, sans-serif;
+    height: 20px;
+    width: 100%;
+    border-collapse: collapse;
 }

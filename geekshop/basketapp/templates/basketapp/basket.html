@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="body">
+    <hr>
+    <h1>Ваш заказ</h1>
+
+    <div>
+        <table class="orderTable">
+         <tr>
+            <td>Наименование</td>
+            <td>Количество</td>
+            <td>Цена</td>
+         </tr>
+        <tr>
+
+
+        {% for item in basket %}
+            <tr>
+                <td>{{ item.product }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>{{ item.product.price }}р.</td>
+            </tr>
+
+        {% endfor %}
+        </tr>
+        </table>
+        Сумма:
+    </div>
+</div>
+{% endblock %}

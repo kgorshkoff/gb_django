@@ -1,13 +1,27 @@
-<div class="headerUnit">
+<div class="headerUnit" id="menu">
     <ul class="main-menu">
+        <a href={% url 'index' %}>Главная</a>
+        <div class="dropdown">
+            <a href={% url 'catalog' %}>Каталог</a>
+            <div class="dropdown-content">
+                {% for i in categories %}
+                    {{ i.name }}
+                {% endfor %}
+            </div>
+        </div>
+        <a href={% url 'contacts' %}>Контакты</a>
         {% if user.is_anonymous == True %}
-            <li><a href={% url 'auth:login' %}>Войти</a></li>
+            <a href={% url 'auth:login' %}>Войти</a>
         {% else %}
-            <li><a href={% url 'auth:logout' %}>Выйти</a></li>
-            <li><a href={% url 'auth:edit' %}>{{ user }}({{ basket.count }})</a></li>
+            <a href={% url 'auth:edit' %}>{{ user }}</a>
+            {% if basket.all %}
+                (<a href={% url 'basket:view' %}>
+                    {{ basket.count }}
+                </a>)
+            {% endif %}
+            <a href={% url 'auth:logout' %}>Выйти</a>
         {% endif %}
-        <li><a href={% url 'contacts' %}>Контакты</a></li>
-        <li><a href={% url 'catalog' %}>Каталог</a></li>
-        <li><a href={% url 'index' %}>Главная</a></li>
     </ul>
 </div>
+
+

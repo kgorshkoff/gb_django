@@ -9,7 +9,6 @@ class Basket(models.Model):
     quantity = models.PositiveIntegerField(verbose_name='количество', default=0)
     add_datetime = models.DateTimeField(verbose_name='время добавления', auto_now_add=True)
 
-
 # basket = Basket(...)
 # print(basket.user)
 #
