@@ -1,8 +1,8 @@
 <div class="headerUnit" id="menu">
     <ul class="main-menu">
-        <a href={% url 'index' %}>Главная</a>
+        <a href={% url 'main' %}>Главная</a>
         <div class="dropdown">
-            <a href={% url 'catalog' %}>Каталог</a>
+            <a href={% url 'mainapp:index' %}>Каталог</a>
             <div class="dropdown-content">
                 {% for i in categories %}
                     {{ i.name }}

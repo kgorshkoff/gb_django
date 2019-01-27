@@ -1,0 +1,46 @@
+{% extends 'mainapp/base.html' %}
+
+{% block content %}
+
+<div class="body">
+    <hr>
+    <h1>Фальшон</h1>
+    <div class="productCont">
+        <a href="{{ product.image.url }}" target="_blank">
+            <img src="{{ product.image.url }}" alt="{{ product.alt }}" class="productImg">
+        </a>
+
+        <h2 class="productHeader">Описание товара</h2>
+        <p class="productShortDesc">
+            {{ product.desc }}
+        </p>
+        <a href="#" class="buybutton">Купить!</a>
+    </div>
+
+    <h2 class="productHeader">Характеристики товара</h2>
+    <table class="productCharacteristics">
+        <tr>
+            <td>Материал</td>
+            <td>сталь 65г, с закалкой 50ед (не является холодным оружием!)</td>
+        </tr>
+        <tr>
+            <td>Длинна клина</td>
+            <td>от 65 до 75см</td>
+        </tr>
+        <tr>
+            <td>Длинна рукояти</td>
+            <td>13 см</td>
+        </tr>
+        <tr>
+            <td>Обмотка ручки</td>
+            <td>Пеньковая веревка</td>
+        </tr>
+    </table>
+
+    <h2 class="productHeader">Подробное описание товара</h2>
+    <p class="productLongDesc">
+        {{ product.longdesc }}
+    </p>
+</div>
+
+{% endblock %}

@@ -1,7 +1,4 @@
-import json
-import os
-
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from basketapp.models import Basket
 from .models import Product
@@ -9,39 +6,40 @@ from .models import Category
 
 
 def main_view(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
     queryset = Category.objects.all()
     queryset = queryset.order_by('position')
-    content = {'categories': queryset, 'basket': basket}
-    return render(request, 'index.html', content)
+    content = {'categories': queryset, 'basket': get_basket(request.user)}
+    return render(request, 'mainapp/index.html', content)
 
 
-def catalog(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
+def catalog(request, pk=None):
     title = 'Каталог'
     products = Product.objects.all()
-    content = {'title': title, 'products': products, 'basket': basket}
-    return render(request, 'catalog.html', content)
+
+    if pk:
+        if pk == 0:
+            products = Product.objects.all().order_by('price')
+        else:
+            products = Product.objects.filter(category__pk=pk).order_by('price')
+
+    content = {'title': title, 'products': products, 'basket': get_basket(request.user)}
+    return render(request, 'mainapp/catalog.html', content)
 
 
-def catalog_id(request, category_id):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
-    title = 'Каталог'
-    products = Product.objects.filter(category=category_id)
-    content = {'title': title, 'products': products, 'basket': basket}
-    return render(request, 'catalog.html', content)
+def product(request, pk):
+    product = Product.objects.filter(pk=pk)
+    content = {'product': product}
+    return render(request, 'mainapp/product.html', content)
 
 
 def contacts(request):
-    basket = []
-    if request.user.is_authenticated:
-        basket = Basket.objects.filter(user=request.user)
     title = 'Контакты'
-    content = {'title': title, 'basket': basket}
-    return render(request, 'contacts.html', content)
+    content = {'title': title, 'basket': get_basket(request.user)}
+    return render(request, 'mainapp/contacts.html', content)
+
+
+def get_basket(user):
+    if user.is_authenticated:
+        return Basket.objects.filter(user=user)
+    else:
+        return []

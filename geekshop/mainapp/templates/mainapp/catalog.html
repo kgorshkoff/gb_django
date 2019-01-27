@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'mainapp/base.html' %}
 {% load static %}
 
 {% block content %}
@@ -13,10 +13,8 @@
                 <img src="{{ product.image.url }}" alt="{{ product.alt }}">
                 Цена {{ product.price }}р
                 <br>
-                {{ product.desc }}
                 <br>
-                <a href="{{ product.image_href }}">Подробнее</a>
-                <br><a href="{% url 'basket:add' product.pk %}">Заказать</a>
+                <a href="{% url 'mainapp:product' product.pk %}">Подробнее!</a>
             </div>
         {% endfor %}
     </div>

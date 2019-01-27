@@ -1,5 +1,10 @@
-{% extends 'base.html' %}
+{% extends 'mainapp/base.html' %}
 {% load static %}
+
+   {% block js %}
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/basket_scripts.js' %}"></script>
+   {% endblock %}
 
 {% block content %}
 <div class="body">
@@ -19,14 +24,19 @@
         {% for item in basket %}
             <tr>
                 <td>{{ item.product }}</td>
-                <td>{{ item.quantity }}</td>
+                <td><input type="number" name="{{ item.pk }}" min="0" value="{{ item.quantity }}"></td>
                 <td>{{ item.product.price }}р.</td>
+                <td><a href="{% url 'basketapp:remove' item.pk %}"><button class="btn-round" name="{{ item.pk }}">
+                удалить
+                </button></a></td>
             </tr>
 
         {% endfor %}
         </tr>
         </table>
-        Сумма:
+        <p>В корзине {{ basket.0.total_quantity }} товаров общей стоимостью
+            {{ basket.0.total_cost }} руб</p>
     </div>
+
 </div>
 {% endblock %}
