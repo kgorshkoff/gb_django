@@ -8,6 +8,7 @@ class Category(models.Model):
     name = models.CharField(max_length=32, unique=True, verbose_name='Название')
     image = models.ImageField(upload_to='products', verbose_name='Изображение', null=True)
     position = models.PositiveIntegerField(verbose_name='Порядок')
+    is_active = models.BooleanField(verbose_name='Активность')
 
 
 class Product(models.Model):
@@ -19,6 +20,7 @@ class Product(models.Model):
     price = models.PositiveIntegerField(verbose_name='Цена')
     image = models.ImageField(upload_to='products', verbose_name='Изображение', null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
+    is_active = models.BooleanField(verbose_name='Активность')
 
 
 # one to one = OneToOne

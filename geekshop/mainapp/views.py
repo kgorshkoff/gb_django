@@ -6,7 +6,7 @@ from .models import Category
 
 
 def main_view(request):
-    queryset = Category.objects.all()
+    queryset = Category.objects.all().exclude(is_active=False)
     queryset = queryset.order_by('position')
     content = {'categories': queryset, 'basket': get_basket(request.user)}
     return render(request, 'mainapp/index.html', content)
@@ -14,13 +14,13 @@ def main_view(request):
 
 def catalog(request, pk=None):
     title = 'Каталог'
-    products = Product.objects.all()
+    products = Product.objects.all().exclude(is_active=False)
 
     if pk:
         if pk == 0:
-            products = Product.objects.all().order_by('price')
+            products = Product.objects.all().order_by('price').exclude(is_active=False)
         else:
-            products = Product.objects.filter(category__pk=pk).order_by('price')
+            products = Product.objects.filter(category__pk=pk).order_by('price').exclude(is_active=False)
 
     content = {'title': title, 'products': products, 'basket': get_basket(request.user)}
     return render(request, 'mainapp/catalog.html', content)

@@ -3,11 +3,11 @@
         <a href={% url 'main' %}>Главная</a>
         <div class="dropdown">
             <a href={% url 'mainapp:index' %}>Каталог</a>
-            <div class="dropdown-content">
-                {% for i in categories %}
-                    {{ i.name }}
-                {% endfor %}
-            </div>
+{#            <div class="dropdown-content">#}
+{#                {% for i in categories %}#}
+{#                    {{ i.name }}#}
+{#                {% endfor %}#}
+{#            </div>#}
         </div>
         <a href={% url 'contacts' %}>Контакты</a>
         {% if user.is_anonymous == True %}
