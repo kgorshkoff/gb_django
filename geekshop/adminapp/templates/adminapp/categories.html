@@ -7,7 +7,25 @@
 		<button class="new_category">
 			<a href={% url 'adminapp:category_create' %}>новая категория</a>
 		</button>
-		
+
+        <div class="paginator">
+          {% if objects.has_previous %}
+            <a href="{% url 'adminapp:categories' objects.previous_page_number %}">
+              <
+            </a>
+          {% endif %}
+          <span class="current">
+            страница {{ objects.number }} из
+            {{ objects.paginator.num_pages }}
+          </span>
+          {% if objects.has_next %}
+            <a href="{% url 'adminapp:categories' objects.next_page_number %}">
+
+              >
+            </a>
+          {% endif %}
+        </div>
+
 		{% for object in objects %}
 			<div class="category_record {% if not object.is_active %}not_active{% endif %}">
 				<div class="category_name">

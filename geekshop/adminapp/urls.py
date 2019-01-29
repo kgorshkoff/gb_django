@@ -7,12 +7,12 @@ urlpatterns = [
     path('', adminapp.main, name='index'),
 
     path('users/create/', adminapp.user_create, name='user_create'),
-    path('users/read/', adminapp.users, name='users'),
+    path('users/read/<int:page>/', adminapp.users, name='users'),
     path('users/update/<pk>/', adminapp.user_update, name='user_update'),
     path('users/delete/<pk>/', adminapp.user_delete, name='user_delete'),
 
     path('categories/create/', adminapp.category_create, name='category_create'),
-    path('categories/read/', adminapp.categories, name='categories'),
+    path('categories/read/<int:page>', adminapp.categories, name='categories'),
     path('categories/update/<pk>/', adminapp.category_update, name='category_update'),
     path('categories/delete/<pk>/', adminapp.category_delete, name='category_delete'),
 

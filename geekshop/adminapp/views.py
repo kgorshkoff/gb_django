@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import render, get_object_or_404, HttpResponseRedirect
 from django.contrib.auth.decorators import user_passes_test
 from django.urls import reverse
@@ -20,14 +21,22 @@ def main(request):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def users(request):
+def users(request, page=1):
     title = 'админка/пользователи'
 
     users_list = ShopUser.objects.all().order_by('-is_active', '-is_superuser', '-is_staff', 'username')
 
+    paginator = Paginator(users_list, 10)
+    try:
+        users_paginator = paginator.page(page)
+    except PageNotAnInteger:
+        users_paginator = paginator.page(1)
+    except EmptyPage:
+        users_paginator = paginator.page(paginator.num_pages)
+
     content = {
         'title': title,
-        'objects': users_list
+        'objects': users_paginator
     }
 
     return render(request, 'adminapp/users.html', content)
@@ -88,14 +97,22 @@ def user_delete(request, pk):
 
 
 @user_passes_test(lambda u: u.is_superuser)
-def categories(request):
+def categories(request, page=1):
     title = 'админка/категории'
 
     categories_list = Category.objects.all()
 
+    paginator = Paginator(categories_list, 10)
+    try:
+        categories_paginator = paginator.page(page)
+    except PageNotAnInteger:
+        categories_paginator = paginator.page(1)
+    except EmptyPage:
+        categories_paginator = paginator.page(paginator.num_pages)
+
     content = {
         'title': title,
-        'objects': categories_list
+        'objects': categories_paginator
     }
 
     return render(request, 'adminapp/categories.html', content)

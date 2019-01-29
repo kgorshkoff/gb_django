@@ -2,7 +2,7 @@
     <ul class="main-menu">
         <a href={% url 'main' %}>Главная</a>
         <div class="dropdown">
-            <a href={% url 'mainapp:index' %}>Каталог</a>
+            <a href={% url 'mainapp:index' page='1'%}>Каталог</a>
 {#            <div class="dropdown-content">#}
 {#                {% for i in categories %}#}
 {#                    {{ i.name }}#}

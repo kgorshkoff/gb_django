@@ -8,12 +8,31 @@
         {% for category in categories %}
             <div class="catUnit" style="text-align: center;">
                 <b>{{ category.name }}</b>
-                <a href="{% url 'mainapp:catalog' category.id %}">
+                <a href="{% url 'mainapp:catalog' pk=category.id page=1 %}">
                     <img src="{{ category.image.url }}" alt="{{ category.name }}">
                     Подробнее</a>
             </div>
         {% endfor %}
     </div>
+
+    <div class="paginator">
+      {% if categories.has_previous %}
+        <a href="{% url 'main_page' categories.previous_page_number %}">
+          <
+        </a>
+      {% endif %}
+      <span class="current">
+        страница {{ categories.number }} из
+        {{ categories.paginator.num_pages }}
+      </span>
+      {% if categories.has_next %}
+        <a href="{% url 'main_page' categories.next_page_number %}">
+
+          >
+        </a>
+      {% endif %}
+    </div>
+
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt mauris turpis.
         Mauris sed velit erat. Vivamus condimentum non nunc id tristique.

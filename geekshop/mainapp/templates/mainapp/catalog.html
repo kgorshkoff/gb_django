@@ -18,5 +18,26 @@
             </div>
         {% endfor %}
     </div>
+
+    <div class="paginator">
+          {% if products.has_previous %}
+            <a href="{% url 'mainapp:catalog'
+                             product.pk products.previous_page_number %}">
+              <
+            </a>
+          {% endif %}
+          <span class="current">
+            страница {{ products.number }} из
+            {{ products.paginator.num_pages }}
+          </span>
+          {% if products.has_next %}
+            <a href="{% url 'mainapp:catalog'
+                             product.pk products.next_page_number %}">
+              >
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
 </div>
 {% endblock %}
