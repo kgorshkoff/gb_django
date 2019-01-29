@@ -16,17 +16,17 @@
     </div>
 
     <div class="paginator">
-      {% if categories.has_previous %}
-        <a href="{% url 'main_page' categories.previous_page_number %}">
+      {% if page_obj.has_previous %}
+        <a href="{% url 'main_page' page_obj.previous_page_number %}">
           <
         </a>
       {% endif %}
       <span class="current">
-        страница {{ categories.number }} из
-        {{ categories.paginator.num_pages }}
+        страница {{ page_obj.number }} из
+        {{ page_obj.paginator.num_pages }}
       </span>
-      {% if categories.has_next %}
-        <a href="{% url 'main_page' categories.next_page_number %}">
+      {% if page_obj.has_next %}
+        <a href="{% url 'main_page' page_obj.next_page_number %}">
 
           >
         </a>

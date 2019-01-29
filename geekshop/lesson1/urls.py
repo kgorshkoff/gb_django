@@ -20,8 +20,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('', views.main_view, name='main'),
-    path('<int:page>', views.main_view, name='main_page'),
+    path('', views.MainView.as_view(), name='main'),
+    path('<int:page>', views.MainView.as_view(), name='main_page'),
     path('contacts/', views.contacts, name='contacts'),
     path('products/', include('mainapp.urls', namespace='products')),
     path('auth/', include('authapp.urls', namespace='auth')),

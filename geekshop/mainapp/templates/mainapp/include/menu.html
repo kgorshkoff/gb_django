@@ -16,7 +16,7 @@
             <a href={% url 'auth:edit' %}>{{ user }}</a>
             {% if basket.all %}
                 (<a href={% url 'basket:view' %}>
-                    {{ basket.count }}
+                    {{ basket.0.total_quantity }}
                 </a>)
             {% endif %}
             <a href={% url 'auth:logout' %}>Выйти</a>
