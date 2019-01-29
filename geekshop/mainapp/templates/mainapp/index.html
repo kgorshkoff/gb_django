@@ -1,4 +1,6 @@
 {% extends 'mainapp/base.html' %}
+{% load my_tags %}
+
 {% block content %}
 
 <div class="body">
@@ -7,7 +9,7 @@
     <div class="catCont">
         {% for category in categories %}
             <div class="catUnit" style="text-align: center;">
-                <b>{{ category.name }}</b>
+                <b>{{ category.name|allcaps }}</b>
                 <a href="{% url 'mainapp:catalog' pk=category.id page=1 %}">
                     <img src="{{ category.image.url }}" alt="{{ category.name }}">
                     Подробнее</a>
