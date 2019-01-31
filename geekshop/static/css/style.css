@@ -605,8 +605,8 @@ html, body {
 
 .login div.user_avatar {
     position: fixed;
-    left: 175px;
-    top: 200px;
+    left: 130px;
+    top: 125px;
 }
 
 .user_avatar img {

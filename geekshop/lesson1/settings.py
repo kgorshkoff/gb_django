@@ -67,6 +67,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'mainapp.context_processors.basket',
             ],
         },
     },
@@ -130,3 +131,16 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 AUTH_USER_MODEL = "authapp.ShopUser"
+
+LOGIN_URL = '/auth/login/'
+
+
+DOMAIN_NAME = 'http://localhost:8000'
+
+EMAIL_HOST = 'smtp.yandex.ru'
+EMAIL_PORT = '465'
+EMAIL_HOST_USER = 'djangolesson2019@yandex.ru'
+EMAIL_HOST_PASSWORD = 'djangolesson'
+EMAIL_USE_SSL = True
+
+#EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
