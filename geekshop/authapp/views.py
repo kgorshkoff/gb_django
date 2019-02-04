@@ -1,6 +1,7 @@
 from django.core.mail import send_mail
+from django.db import transaction
 from django.shortcuts import render, HttpResponseRedirect
-from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm
+from authapp.forms import ShopUserLoginForm, ShopUserRegisterForm, ShopUserProfileEditForm
 from django.contrib import auth
 from django.urls import reverse
 from django.conf import settings
@@ -12,7 +13,8 @@ from authapp.models import ShopUser
 def send_verify_mail(user):
     title = 'Подтверждение регистрации'
     verify_link = reverse('authapp:verify', args=[user.email, user.active_key])
-    message = 'Для подтверждения на портале {domain_name} перейдите по ссылке {domain_name}{link}'.format(domain_name = settings.DOMAIN_NAME, link = verify_link)
+    message = 'Для подтверждения на портале {domain_name} перейдите по ссылке {domain_name}{link}'\
+        .format(domain_name = settings.DOMAIN_NAME, link = verify_link)
     from_address = 'djangolesson2019@yandex.ru'
     return send_mail(title, message, from_address, [user.email], fail_silently=False)
 
@@ -60,18 +62,21 @@ def register(request):
     return render(request, 'authapp/register.html', content)
 
 
+@transaction.atomic
 def edit(request):
     title = 'Редактирование'
 
     if request.method == 'POST':
         edit_form = ShopUserEditForm(request.POST, request.FILES, instance=request.user)
-        if edit_form.is_valid():
+        profile_form = ShopUserProfileEditForm(request.POST, request.FILES, instance=request.user.shopuserprofile)
+        if edit_form.is_valid() and profile_form.is_valid():
             edit_form.save()
             return HttpResponseRedirect(reverse('auth:edit'))
     else:
         edit_form = ShopUserEditForm(instance=request.user)
+        profile_form = ShopUserProfileEditForm(instance=request.user.shopuserprofile)
 
-    content = {'title': title, 'edit_form': edit_form}
+    content = {'title': title, 'edit_form': edit_form, 'profile_form': profile_form}
 
     return render(request, 'authapp/edit.html', content)
 
