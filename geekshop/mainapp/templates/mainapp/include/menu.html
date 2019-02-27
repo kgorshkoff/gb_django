@@ -19,6 +19,7 @@
                     {{ basket.0.total_quantity }}
                 </a>)
             {% endif %}
+            <a href={% url 'orderapp:orders_list' %}>Заказы</a>
             <a href={% url 'auth:logout' %}>Выйти</a>
         {% endif %}
     </ul>

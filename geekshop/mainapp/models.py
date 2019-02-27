@@ -21,6 +21,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='products', verbose_name='Изображение', null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
     is_active = models.BooleanField(verbose_name='Активность')
+    quantity = models.PositiveIntegerField(verbose_name='количество на складе', default=0)
 
 
 # one to one = OneToOne

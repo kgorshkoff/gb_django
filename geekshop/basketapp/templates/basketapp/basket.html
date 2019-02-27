@@ -28,7 +28,9 @@
                 <td>{{ item.product.price }}р.</td>
                 <td><a href="{% url 'basketapp:remove' item.pk %}"><button class="btn-round" name="{{ item.pk }}">
                 удалить
-                </button></a></td>
+                </button></a>
+                </td>
+
             </tr>
 
         {% endfor %}
@@ -36,6 +38,10 @@
         </table>
         <p>В корзине {{ basket.0.total_quantity }} товаров общей стоимостью
             {{ basket.0.total_cost }} руб</p>
+
+        <a href="{% url 'orderapp:order_create' %}"><button class="btn-round" name="{{ item.pk }}">
+                создать заказ
+                </button></a>
     </div>
 
 </div>
